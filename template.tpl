@@ -15,9 +15,9 @@
 ___INFO___
 
 {
-  "displayName": "Google Analytics Property ID",
+  "displayName": "Cardinal Path: Dynamic GA Property ID",
   "categories": ["ANALYTICS"],
-  "description": "Dynamically populates correct property ID",
+  "description": "Simplifies the ability to dyanically populate a develoment and production Google Analytics Property ID without the use of nested tables",
   "securityGroups": [],
   "id": "cvt_temp_public_id",
   "type": "MACRO",
