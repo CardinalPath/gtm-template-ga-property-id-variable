@@ -1,5 +1,5 @@
 # GTM Template Variable: Dynamic Property ID
-__*Courtesy of Cardinal Path*__ - [http://cardinalpath.com/](http://cardinalpath.com/)
+__*Courtesy of Cardinal Path*__ - [http://cardinalpath.com/](https://www.cardinalpath.com/?utm_source=github.com&utm_campaign=gtm-template&utm_medium=referral)
 
 ## Introduction
 
