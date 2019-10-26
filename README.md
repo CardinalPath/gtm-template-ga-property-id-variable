@@ -1,4 +1,4 @@
-# Cardinal Path GTM Template Variable
+# Cardinal Path GTM Template Variable: Dynamic Property ID
 
 ## Introduction
 
