@@ -15,21 +15,16 @@
 ___INFO___
 
 {
-  "displayName": "Example Template",
-  "description": "This is an example template. For more information, visit https://developers.google.com/tag-manager/templates",
-  "categories": ["AFFILIATE_MARKETING", "ADVERTISING"],
+  "displayName": "Google Analytics Property ID",
+  "description": "Dynamically populates correct property ID",
   "securityGroups": [],
   "id": "cvt_temp_public_id",
-  "type": "TAG",
+  "type": "MACRO",
   "version": 1,
-  "brand": {
-    "thumbnail": "",
-    "displayName": "",
-    "id": "brand_dummy"
-  },
   "containerContexts": [
     "WEB"
-  ]
+  ],
+  "brand": {}
 }
 
 
@@ -37,11 +32,41 @@ ___TEMPLATE_PARAMETERS___
 
 [
   {
-    "help": "Enter an example measurement ID. The value can be any character. This is only an example.",
-    "displayName": "Example Measurement ID",
-    "defaultValue": "foobarbaz1234",
-    "name": "MeasurementID",
+    "displayName": "Production UAID",
+    "simpleValueType": true,
+    "name": "uaid_prod",
     "type": "TEXT"
+  },
+  {
+    "displayName": "Development UAID",
+    "simpleValueType": true,
+    "name": "uaid_dev",
+    "type": "TEXT"
+  },
+  {
+    "displayName": "Debug Mode Variable",
+    "simpleValueType": true,
+    "name": "debugMode",
+    "type": "TEXT"
+  },
+  {
+    "displayName": "Environments Variable",
+    "simpleValueType": true,
+    "name": "environment",
+    "type": "TEXT"
+  },
+  {
+    "displayName": "URL Pattern for Development Domains",
+    "name": "domains",
+    "simpleTableColumns": [
+      {
+        "defaultValue": "",
+        "displayName": "URL",
+        "name": "url",
+        "type": "TEXT"
+      }
+    ],
+    "type": "SIMPLE_TABLE"
   }
 ]
 
@@ -70,12 +95,19 @@ ___WEB_PERMISSIONS___
   {
     "instance": {
       "key": {
-        "publicId": "get_referrer",
+        "publicId": "get_url",
         "versionId": "1"
       },
       "param": [
         {
           "key": "urlParts",
+          "value": {
+            "type": 1,
+            "string": "any"
+          }
+        },
+        {
+          "key": "queriesAllowed",
           "value": {
             "type": 1,
             "string": "any"
@@ -90,21 +122,34 @@ ___WEB_PERMISSIONS___
 
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
-// Enter your template code here.
-const queryPermission = require('queryPermission');
-const getReferrerUrl = require('getReferrerUrl');
-let referrer;
-if (queryPermission('get_referrer', 'query')) {
-  referrer = getReferrerUrl('queryParams');
+var logger = require('logToConsole');
+
+const log = data.debugMode ? logger : (() => {});
+const getUrl = require('getUrl');
+const encodeUri = require('encodeUri');
+var uaid=data.uaid_prod;
+const host=getUrl('host');
+//log("host:"+host);
+
+if(data.environment.indexOf("stag")>=0||data.environment.indexOf("dev")>=0||data.environment.indexOf("draft")>=0){
+  uaid=data.uaid_dev;
 }
 
-var log = require('logToConsole');
-log('data =', data);
+if(data.debugMode===true){
+  uaid=data.uaid_dev;
+}
 
-// Call data.gtmOnSuccess when the tag is finished.
-data.gtmOnSuccess();
+var i;
+for (i = 0; i < data.domains.length; i++) { 
+  if(host.indexOf(data.domains[i].url)>=0){
+    uaid=data.uaid_dev;
+    break;
+  }
+}
+return uaid;
 
 
 ___NOTES___
 
-Created on 9/2/2019, 1:02:37 PM
+Created on 10/25/2019, 7:07:27 PM
+
