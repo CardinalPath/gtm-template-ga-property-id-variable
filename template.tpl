@@ -34,7 +34,7 @@ ___TEMPLATE_PARAMETERS___
     "name": "uaid_prod",
     "type": "TEXT"
   },
-  {
+  { 
     "displayName": "Development UAID",
     "simpleValueType": true,
     "name": "uaid_dev",
