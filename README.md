@@ -8,5 +8,5 @@ This variables will allow you to easily toggle based on [Environment](https://su
 
 ## Setup Instructions
 * GTM>Variables->Built -In Variables
-   *Enable "Built-In" Variables: "Debug Mode" and "Environment Name".
+   * Enable "Built-In" Variables: "Debug Mode" and "Environment Name".
 
