@@ -2,6 +2,7 @@
 
 # GTM Template Variable: Dynamic Property ID
 ![Cardinal Path](https://github.com/CardinalPath/gtm-template-ga-property-id-variable/blob/master/images/cardinal-path-logo.png)
+
 __*Courtesy of Cardinal Path*__ - [http://cardinalpath.com/](https://www.cardinalpath.com/?utm_source=github.com&utm_campaign=gtm-template&utm_medium=referral)
 
 ## Introduction
