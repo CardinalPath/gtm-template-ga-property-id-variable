@@ -8,9 +8,12 @@ This variables will allow you to easily toggle based on [Environment](https://su
 
 ## Setup Instructions
 * Navigate to GTM>Variables->Built -In Variables:
-   * Enable "Built-In" Variables: "Debug Mode" and "Environment Name".
+   * Enable two "Built-In" Variables: "Debug Mode" and "Environment Name".
 * Navigate to Admin>Environments
   * Create a new Environment titled "Dev"
   * Obtain installation instructions and send to develop to install on a lower environment domain (such as staging.mysite.com)
+* Navigate to GTM>User Defined Variables:
+  * Create new variable using this template
+
   
 
