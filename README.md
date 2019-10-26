@@ -1,3 +1,4 @@
+[[https://github.com/CardinalPath/gtm-template-ga-property-id-variable/blob/master/images/cp_logo.PNG]]
 # GTM Template Variable: Dynamic Property ID
 __*Courtesy of Cardinal Path*__ - [http://cardinalpath.com/](https://www.cardinalpath.com/?utm_source=github.com&utm_campaign=gtm-template&utm_medium=referral)
 
