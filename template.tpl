@@ -16,6 +16,7 @@ ___INFO___
 
 {
   "displayName": "Google Analytics Property ID",
+  "categories": ["ANALYTICS"],
   "description": "Dynamically populates correct property ID",
   "securityGroups": [],
   "id": "cvt_temp_public_id",
