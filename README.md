@@ -15,5 +15,11 @@ This variables will allow you to easily toggle based on [Environment](https://su
 * Navigate to GTM>User Defined Variables:
   * Create new variable using this template
 
-  
+ ## Variable Configuration
+ 1. Production UAID should be populated with your production Property ID
+ 1. Development UAID should be populated with your production Property ID
+ 1. Debug Mode Variable should be populated with the "Debug Mode" variable that you would have enabled in previous steps.
+ 1. Environment Variable should be populated with the "Environment Name" variable that you would have enabled in previous steps.
+ 1. Populate the non production URL in the "URL Pattern for Developement Domains.  You can omit the "http://" portion. Add a second row if you have a second develoment domain.  Using a value such as "dev" will match any URL that contains "dev" within the URL.
+ 
 
