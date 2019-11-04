@@ -8,7 +8,7 @@ Google may provide), as modified from time to time.
 ___INFO___
 
 {
-  "displayName": "Cardinal Path: Dynamic GA Property ID",
+  "displayName": "Cardinal Path - Dynamic GA Property ID",
   "categories": ["ANALYTICS"],
   "description": "Simplifies the ability to dyanically populate a develoment and production Google Analytics Property ID without the use of nested tables",
   "securityGroups": [],
