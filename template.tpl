@@ -10,7 +10,7 @@ ___INFO___
 {
   "displayName": "Dynamic GA Property ID",
   "categories": ["ANALYTICS"],
-  "description": "Simplifies the ability to dyanically populate a develoment and production Google Analytics Property ID without the use of nested tables",
+  "description": "Simplifies the ability to dynamically populate a development and production Google Analytics Property ID without the use of nested tables",
   "securityGroups": [],
   "id": "cvt_temp_public_id",
   "type": "MACRO",
@@ -25,6 +25,7 @@ ___INFO___
   }
 }
 
+
 ___TEMPLATE_PARAMETERS___
 
 [
@@ -32,25 +33,51 @@ ___TEMPLATE_PARAMETERS___
     "displayName": "Production UAID",
     "simpleValueType": true,
     "name": "uaid_prod",
-    "type": "TEXT"
+    "type": "TEXT",
+    "valueValidators": [
+      {
+        "type": "NON_EMPTY"
+      },
+      {
+        "type": "GA_TRACKING_ID"
+      }
+    ]
   },
-  { 
+  {
     "displayName": "Development UAID",
     "simpleValueType": true,
     "name": "uaid_dev",
-    "type": "TEXT"
+    "type": "TEXT",
+    "valueValidators": [
+      {
+        "type": "NON_EMPTY"
+      },
+      {
+        "type": "GA_TRACKING_ID"
+      }
+    ]
   },
   {
     "displayName": "Debug Mode Variable",
     "simpleValueType": true,
     "name": "debugMode",
-    "type": "TEXT"
+    "type": "TEXT",
+    "valueValidators": [
+      {
+        "type": "NON_EMPTY"
+      }
+    ]
   },
   {
     "displayName": "Environments Variable",
     "simpleValueType": true,
     "name": "environment",
-    "type": "TEXT"
+    "type": "TEXT",
+    "valueValidators": [
+      {
+        "type": "NON_EMPTY"
+      }
+    ]
   },
   {
     "displayName": "URL Pattern for Development Domains",
@@ -63,32 +90,47 @@ ___TEMPLATE_PARAMETERS___
         "type": "TEXT"
       }
     ],
-    "type": "SIMPLE_TABLE"
+    "type": "SIMPLE_TABLE",
+    "valueValidators": [
+      {
+        "type": "NON_EMPTY"
+      }
+    ]
   }
 ]
+
+
+___SANDBOXED_JS_FOR_WEB_TEMPLATE___
+
+//var logger = require('logToConsole');
+//const log = data.debugMode ? logger : (() => {});
+const getUrl = require('getUrl');
+//const encodeUri = require('encodeUri');
+var uaid=data.uaid_prod;
+const host=getUrl('host');
+//log("host:"+host);
+
+if(data.environment.indexOf("stag")>=0||data.environment.indexOf("dev")>=0||data.environment.indexOf("draft")>=0){
+  uaid=data.uaid_dev;
+}
+
+if(data.debugMode===true){
+  uaid=data.uaid_dev;
+}
+
+var i;
+for (i = 0; i < data.domains.length; i++) { 
+  if(host.indexOf(data.domains[i].url)>=0){
+    uaid=data.uaid_dev;
+    break;
+  }
+}
+return uaid;
 
 
 ___WEB_PERMISSIONS___
 
 [
-  {
-    "instance": {
-      "key": {
-        "publicId": "logging",
-        "versionId": "1"
-      },
-      "param": [
-        {
-          "key": "environments",
-          "value": {
-            "type": 1,
-            "string": "debug"
-          }
-        }
-      ]
-    },
-    "isRequired": true
-  },
   {
     "instance": {
       "key": {
@@ -117,36 +159,12 @@ ___WEB_PERMISSIONS___
 ]
 
 
-___SANDBOXED_JS_FOR_WEB_TEMPLATE___
+___TESTS___
 
-var logger = require('logToConsole');
-
-const log = data.debugMode ? logger : (() => {});
-const getUrl = require('getUrl');
-const encodeUri = require('encodeUri');
-var uaid=data.uaid_prod;
-const host=getUrl('host');
-//log("host:"+host);
-
-if(data.environment.indexOf("stag")>=0||data.environment.indexOf("dev")>=0||data.environment.indexOf("draft")>=0){
-  uaid=data.uaid_dev;
-}
-
-if(data.debugMode===true){
-  uaid=data.uaid_dev;
-}
-
-var i;
-for (i = 0; i < data.domains.length; i++) { 
-  if(host.indexOf(data.domains[i].url)>=0){
-    uaid=data.uaid_dev;
-    break;
-  }
-}
-return uaid;
+scenarios: []
 
 
 ___NOTES___
 
-Created on 10/25/2019, 7:07:27 PM
+Updated on 11/16/2019, 9:20:24 AM
 
