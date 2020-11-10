@@ -2,9 +2,11 @@ homepage: "https://www.cardinalpath.com/"
 documentation: "https://github.com/CardinalPath/gtm-template-ga-property-id-variable/blob/master/README.md"
 versions:
 # Latest version
-  - sha: 16297f01b28c33d07d8642e9fec5350aaae372f5
-    changeNotes: 2 | Desc Title update added field validation
+  - sha: 421c93f867f46bdbfdfed189972b6101ba14b1fd
+    changeNotes: 3 | regex matching on domains and environments, removed mandatory fields for property id, compatible with GA4 properties
 # Olderversion
+  - sha: 16297f01b28c33d07d8642e9fec5350aaae372f5
+    changeNotes: 2 | Bug Fixes
   - sha: 25fae136e938dff0d30fcf6fb63ce0df0f7af890
     changeNotes: 1 | Initial release
   - sha: 25fae136e938dff0d30fcf6fb63ce0df0f7af890
