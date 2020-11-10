@@ -37,9 +37,6 @@ ___TEMPLATE_PARAMETERS___
     "valueValidators": [
       {
         "type": "NON_EMPTY"
-      },
-      {
-        "type": "GA_TRACKING_ID"
       }
     ]
   },
@@ -51,9 +48,6 @@ ___TEMPLATE_PARAMETERS___
     "valueValidators": [
       {
         "type": "NON_EMPTY"
-      },
-      {
-        "type": "GA_TRACKING_ID"
       }
     ]
   },
@@ -72,12 +66,7 @@ ___TEMPLATE_PARAMETERS___
     "displayName": "Environments Variable",
     "simpleValueType": true,
     "name": "environment",
-    "type": "TEXT",
-    "valueValidators": [
-      {
-        "type": "NON_EMPTY"
-      }
-    ]
+    "type": "TEXT"
   },
   {
     "displayName": "URL Pattern for Development Domains",
@@ -95,38 +84,35 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "NON_EMPTY"
       }
-    ]
+    ],
+    "help": "pattern for non prod sites eg. \"dev|staging|uat\""
   }
 ]
 
-
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
-//var logger = require('logToConsole');
-//const log = data.debugMode ? logger : (() => {});
+var logger = require('logToConsole');
 const getUrl = require('getUrl');
-//const encodeUri = require('encodeUri');
 var uaid=data.uaid_prod;
 const host=getUrl('host');
-//log("host:"+host);
 
-if(data.environment.indexOf("stag")>=0||data.environment.indexOf("dev")>=0||data.environment.indexOf("draft")>=0){
+if(data.environment){
+  data.environment=data.environment.toLowerCase();
+  if(data.environment.match("dev|stag|draft|test|uat")){
+    uaid=data.uaid_dev;
+  }
+}
+if(data.debugMode===true||data.debugMode==1||data.debugMode=="true"){
   uaid=data.uaid_dev;
 }
-
-if(data.debugMode===true){
-  uaid=data.uaid_dev;
-}
-
 var i;
 for (i = 0; i < data.domains.length; i++) { 
-  if(host.indexOf(data.domains[i].url)>=0){
+  if(host.match(data.domains[i].url)){
     uaid=data.uaid_dev;
     break;
   }
 }
 return uaid;
-
 
 ___WEB_PERMISSIONS___
 
@@ -155,6 +141,24 @@ ___WEB_PERMISSIONS___
       ]
     },
     "isRequired": true
+  },
+  {
+    "instance": {
+      "key": {
+        "publicId": "logging",
+        "versionId": "1"
+      },
+      "param": [
+        {
+          "key": "environments",
+          "value": {
+            "type": 1,
+            "string": "debug"
+          }
+        }
+      ]
+    },
+    "isRequired": true
   }
 ]
 
@@ -166,5 +170,4 @@ scenarios: []
 
 ___NOTES___
 
-Updated on 11/16/2019, 9:20:24 AM
-
+Updated on 11/09/2020
