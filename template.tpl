@@ -91,7 +91,7 @@ ___TEMPLATE_PARAMETERS___
 
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
-var logger = require('logToConsole');
+
 const getUrl = require('getUrl');
 var uaid=data.uaid_prod;
 const host=getUrl('host');
@@ -136,24 +136,6 @@ ___WEB_PERMISSIONS___
           "value": {
             "type": 1,
             "string": "any"
-          }
-        }
-      ]
-    },
-    "isRequired": true
-  },
-  {
-    "instance": {
-      "key": {
-        "publicId": "logging",
-        "versionId": "1"
-      },
-      "param": [
-        {
-          "key": "environments",
-          "value": {
-            "type": 1,
-            "string": "debug"
           }
         }
       ]
