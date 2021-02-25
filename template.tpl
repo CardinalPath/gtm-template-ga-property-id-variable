@@ -8,9 +8,9 @@ Google may provide), as modified from time to time.
 ___INFO___
 
 {
-  "displayName": "Dynamic GA Property ID",
+  "displayName": "Dynamic Measurement ID",
   "categories": ["ANALYTICS"],
-  "description": "Simplifies the ability to dynamically populate a development and production Google Analytics Property ID without the use of nested tables",
+  "description": "Simplifies the ability to dynamically populate a development and production Measurement ID without the use of nested tables. Compatible with both Google Analyitcs 4 & Universal Analtyics.",
   "securityGroups": [],
   "id": "cvt_temp_public_id",
   "type": "MACRO",
@@ -30,7 +30,7 @@ ___TEMPLATE_PARAMETERS___
 
 [
   {
-    "displayName": "Production UAID",
+    "displayName": "Measurement ID for production website",
     "simpleValueType": true,
     "name": "uaid_prod",
     "type": "TEXT",
@@ -38,10 +38,12 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "NON_EMPTY"
       }
-    ]
+    ],
+    "valueHint": "G-XXXXXXX",
+    "help": "Enter in a GA4 Webstream ID or a UA Property ID"
   },
   {
-    "displayName": "Development UAID",
+    "displayName": "Measurement ID for development website",
     "simpleValueType": true,
     "name": "uaid_dev",
     "type": "TEXT",
@@ -49,7 +51,9 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "NON_EMPTY"
       }
-    ]
+    ],
+    "valueHint": "G-XXXXXXX",
+    "help": "Enter in a GA4 Webstream ID or a UA Property ID"
   },
   {
     "displayName": "Debug Mode Variable",
@@ -60,16 +64,20 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "NON_EMPTY"
       }
-    ]
+    ],
+    "help": "Enter your {{Debug Mode}} variable here",
+    "valueHint": "{{Debug Mode}}"
   },
   {
-    "displayName": "Environments Variable",
+    "displayName": "Environments Variable (optional but recommended)",
     "simpleValueType": true,
     "name": "environment",
-    "type": "TEXT"
+    "type": "TEXT",
+    "help": "Add your {{Environment Name}} variable here",
+    "valueHint": "{{Environment Name}}"
   },
   {
-    "displayName": "URL Pattern for Development Domains",
+    "displayName": "URL Pattern for Development Domaindevs",
     "name": "domains",
     "simpleTableColumns": [
       {
@@ -152,4 +160,4 @@ scenarios: []
 
 ___NOTES___
 
-Updated on 11/09/2020
+Updated on 2/25/2021
