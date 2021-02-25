@@ -3,7 +3,7 @@ documentation: "https://github.com/CardinalPath/gtm-template-ga-property-id-vari
 versions:
 # Latest version
   - sha: a4387cc5e61221e37b53d442980ef15ab39ad110
-    changeNotes: 4 | Friendlier labels & code hints, changed field names to "Measurement ID" instead of "Product ID".
+    changeNotes: 4 | Friendlier labels & code hints, changed field names to 'Measurement ID' instead of 'Product ID'.
 # Olderversion
  - sha: 2aa28bf6dcc243cea62c80823076ca3c671bc909
     changeNotes: 3 | regex matching on domains and environments, removed mandatory fields for property id, compatible with GA4 properties
