@@ -56,7 +56,7 @@ ___TEMPLATE_PARAMETERS___
     "help": "Enter in a GA4 Webstream ID or a UA Property ID"
   },
   {
-    "displayName": "URL Pattern for Development Domaindevs",
+    "displayName": "URL Pattern for Development Domains",
     "name": "domains",
     "simpleTableColumns": [
       {
