@@ -20,7 +20,7 @@ This variables will allow you to easily toggle based on [Environment](https://su
   * Create new variable using this template
 
  ## Variable Configuration
- ![GTM Variable](https://github.com/CardinalPath/gtm-template-ga-property-id-variable/blob/master/images/Capture-screenshot.PNG)
+ ![GTM Variable](https://github.com/CardinalPath/gtm-template-ga-property-id-variable/blob/master/images/Capture-dynamicmeasurementid.PNG)
  1. __Production UAID__ should be populated with your production Property ID
  1. __Development UAID__ should be populated with your development Property ID
  1. __Debug Mode Variable__ should be populated with the "Debug Mode" variable that you would have enabled in previous steps.
