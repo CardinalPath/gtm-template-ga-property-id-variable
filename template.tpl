@@ -8,9 +8,9 @@ Google may provide), as modified from time to time.
 ___INFO___
 
 {
-  "displayName": "Dynamic Measurement ID"",
+  "displayName": "Dynamic Measurement ID",
   "categories": ["ANALYTICS"],
-  "description": "Simplifies the ability to dynamically populate a development and production Google Analytics Property ID without the use of nested tables",
+  "description": "Simplifies the ability to dynamically populate a development and production Measurement ID without the use of nested tables. Compatible with both Google Analyitcs 4 \u0026 Universal Analtyics.",
   "securityGroups": [],
   "id": "cvt_temp_public_id",
   "type": "MACRO",
@@ -56,7 +56,7 @@ ___TEMPLATE_PARAMETERS___
     "help": "Enter in a GA4 Webstream ID or a UA Property ID"
   },
   {
-    "displayName": "URL Pattern for Development Domains",
+    "displayName": "URL Pattern for Development Domaindevs",
     "name": "domains",
     "simpleTableColumns": [
       {
@@ -75,7 +75,6 @@ ___TEMPLATE_PARAMETERS___
     "help": "pattern for non prod sites eg. \"dev|staging|uat\""
   }
 ]
-
 
 ___WEB_PERMISSIONS___
 
