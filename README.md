@@ -1,5 +1,5 @@
 
-![Cardinal Path](https://github.com/CardinalPath/gtm-template-ga-property-id-variable/blob/master/images/cardinal-path-logo.png)
+![Cardinal Path](https://github.com/CardinalPath/gtm-template-ga-property-id-variable/blob/master/images/cp-merkle-logo.png)
 
 __*Courtesy of Merkle | Cardinal Path*__ - [http://cardinalpath.com/](https://www.cardinalpath.com/?utm_source=github.com&utm_campaign=gtm-template&utm_medium=referral)
 # GTM Template Variable: Dynamic Measurement ID
