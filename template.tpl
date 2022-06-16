@@ -25,6 +25,8 @@ ___INFO___
   }
 }
 
+
+
 ___TEMPLATE_PARAMETERS___
 
 [
@@ -74,36 +76,6 @@ ___TEMPLATE_PARAMETERS___
     "help": "pattern for non prod sites eg. \"dev|staging|uat\""
   }
 ]
-
-___SANDBOXED_JS_FOR_WEB_TEMPLATE___
-
-const getContainerVersion = require('getContainerVersion');
-const cv = getContainerVersion();
-data.debugMode=cv.debugMode;
-data.environment=cv.environmentName;
-const getUrl = require('getUrl');
-var uaid=data.uaid_prod;
-const host=getUrl('host');
-const log=require('logToConsole');
-
-if(data.environment){
-  data.environment=data.environment.toLowerCase();
-  if(data.environment.match("dev|stag|draft|test|uat")){
-    uaid=data.uaid_dev;
-  }
-}
-if(data.debugMode===true||data.debugMode==1||data.debugMode=="true"){
-  uaid=data.uaid_dev;
-}
-var i;
-for (i = 0; i < data.domains.length; i++) { 
-  if(host.match(data.domains[i].url)){
-    uaid=data.uaid_dev;
-    break;
-  }
-}
-log(data);
-return uaid;
 
 ___WEB_PERMISSIONS___
 
@@ -162,6 +134,36 @@ ___WEB_PERMISSIONS___
     "isRequired": true
   }
 ]
+
+___SANDBOXED_JS_FOR_WEB_TEMPLATE___
+
+const getContainerVersion = require('getContainerVersion');
+const cv = getContainerVersion();
+data.debugMode=cv.debugMode;
+data.environment=cv.environmentName;
+const getUrl = require('getUrl');
+var uaid=data.uaid_prod;
+const host=getUrl('host');
+const log=require('logToConsole');
+
+if(data.environment){
+  data.environment=data.environment.toLowerCase();
+  if(data.environment.match("dev|stag|draft|test|uat")){
+    uaid=data.uaid_dev;
+  }
+}
+if(data.debugMode===true||data.debugMode==1||data.debugMode=="true"){
+  uaid=data.uaid_dev;
+}
+var i;
+for (i = 0; i < data.domains.length; i++) { 
+  if(host.match(data.domains[i].url)){
+    uaid=data.uaid_dev;
+    break;
+  }
+}
+log(data);
+return uaid;
 
 ___NOTES___
 
