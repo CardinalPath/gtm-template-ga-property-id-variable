@@ -164,12 +164,6 @@ ___WEB_PERMISSIONS___
   }
 ]
 
-
-___TESTS___
-
-scenarios: []
-
-
 ___NOTES___
 
 Updated on 6/16/2022
