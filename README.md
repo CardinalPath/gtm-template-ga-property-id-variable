@@ -10,15 +10,6 @@ It is a common practice to send test data to an alternate Property ID (UA-XXXXXX
 
 This variables will allow you to easily toggle based on [Environment](https://support.google.com/tagmanager/answer/6311518?hl=en), whether you are in [Debug Mode](https://support.google.com/tagmanager/answer/6107056?hl=en), or accessing a development domain.
 
-## Setup Instructions
-* Navigate to GTM>Variables->Built -In Variables:
-   * Enable two "Built-In" Variables: "Debug Mode" and "Environment Name".
-* Navigate to Admin>Environments
-  * Create a new Environment titled "Dev"
-  * Obtain installation instructions and send to developers to install on a lower environment domain (such as staging.mysite.com)
-* Navigate to GTM>User Defined Variables:
-  * Create new variable using this template
-
  ## Variable Configuration
  ![GTM Variable](https://github.com/CardinalPath/gtm-template-ga-property-id-variable/blob/master/images/Capture-dynamicmeasurementid.PNG)
  1. __Production UAID__ should be populated with your production Measurement ID
