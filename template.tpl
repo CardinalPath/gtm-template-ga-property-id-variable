@@ -8,9 +8,9 @@ Google may provide), as modified from time to time.
 ___INFO___
 
 {
-  "displayName": "Dynamic Measurement ID",
+  "displayName": "Dynamic Measurement ID"",
   "categories": ["ANALYTICS"],
-  "description": "Simplifies the ability to dynamically populate a development and production Measurement ID without the use of nested tables. Compatible with both Google Analyitcs 4 & Universal Analtyics.",
+  "description": "Simplifies the ability to dynamically populate a development and production Google Analytics Property ID without the use of nested tables",
   "securityGroups": [],
   "id": "cvt_temp_public_id",
   "type": "MACRO",
@@ -56,27 +56,6 @@ ___TEMPLATE_PARAMETERS___
     "help": "Enter in a GA4 Webstream ID or a UA Property ID"
   },
   {
-    "displayName": "Debug Mode Variable",
-    "simpleValueType": true,
-    "name": "debugMode",
-    "type": "TEXT",
-    "valueValidators": [
-      {
-        "type": "NON_EMPTY"
-      }
-    ],
-    "help": "Enter your {{Debug Mode}} variable here",
-    "valueHint": "{{Debug Mode}}"
-  },
-  {
-    "displayName": "Environments Variable (optional but recommended)",
-    "simpleValueType": true,
-    "name": "environment",
-    "type": "TEXT",
-    "help": "Add your {{Environment Name}} variable here",
-    "valueHint": "{{Environment Name}}"
-  },
-  {
     "displayName": "URL Pattern for Development Domaindevs",
     "name": "domains",
     "simpleTableColumns": [
@@ -99,10 +78,14 @@ ___TEMPLATE_PARAMETERS___
 
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
-
+const getContainerVersion = require('getContainerVersion');
+const cv = getContainerVersion();
+data.debugMode=cv.debugMode;
+data.environment=cv.environmentName;
 const getUrl = require('getUrl');
 var uaid=data.uaid_prod;
 const host=getUrl('host');
+const log=require('logToConsole');
 
 if(data.environment){
   data.environment=data.environment.toLowerCase();
@@ -120,6 +103,7 @@ for (i = 0; i < data.domains.length; i++) {
     break;
   }
 }
+log(data);
 return uaid;
 
 ___WEB_PERMISSIONS___
@@ -149,6 +133,34 @@ ___WEB_PERMISSIONS___
       ]
     },
     "isRequired": true
+  },
+  {
+    "instance": {
+      "key": {
+        "publicId": "logging",
+        "versionId": "1"
+      },
+      "param": [
+        {
+          "key": "environments",
+          "value": {
+            "type": 1,
+            "string": "debug"
+          }
+        }
+      ]
+    },
+    "isRequired": true
+  },
+  {
+    "instance": {
+      "key": {
+        "publicId": "read_container_data",
+        "versionId": "1"
+      },
+      "param": []
+    },
+    "isRequired": true
   }
 ]
 
@@ -160,4 +172,4 @@ scenarios: []
 
 ___NOTES___
 
-Updated on 2/25/2021
+Updated on 6/16/2022
