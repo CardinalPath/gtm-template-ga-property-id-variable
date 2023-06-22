@@ -162,7 +162,7 @@ for (i = 0; i < data.domains.length; i++) {
     break;
   }
 }
-log(data);
+//log(data);
 return uaid;
 
 
