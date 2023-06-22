@@ -2,9 +2,11 @@ homepage: "https://www.cardinalpath.com/"
 documentation: "https://github.com/CardinalPath/gtm-template-ga-property-id-variable/blob/master/README.md"
 versions:
 # Latest version
+ - sha: bf12daa1a39efaf79631e6beeef709b5ad63854c
+   changeNotes: 5.1 | remove log command
+# Olderversion
  - sha: 0cd403caeb880b24d878fab0e84513714a78eb81
    changeNotes: 5 | removal of debug and environment fields
-# Olderversion
  - sha: a4387cc5e61221e37b53d442980ef15ab39ad110
    changeNotes: 4 | Friendlier labels & code hints, changed field names to 'Measurement ID' instead of 'Product ID'.
  - sha: 2aa28bf6dcc243cea62c80823076ca3c671bc909
